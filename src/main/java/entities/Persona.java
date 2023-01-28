@@ -7,7 +7,7 @@ public class Persona {
 
 	private String name;
 	private String data;
-	private List<Adress> adressList = new ArrayList<>();
+	private List<Address> addressList = new ArrayList<>();
 	
 	public Persona() {
 	}
@@ -33,43 +33,47 @@ public class Persona {
 		this.data = data;
 	}
 	
-	public List<Adress> getAdress(){
-		return adressList;
+	public List<Address> getAddress(){
+		return addressList;
 	}
 	
-	//Add adress
-	public void addAdress(Adress adress) {
-		adressList.add(adress);
+	//Add address
+	public void addAddress(Address address) {
+		addressList.add(address);
 	}
 	
-	//Revome adress
-	public void removeAdress(Adress adress) {
-		adressList.remove(adress);
+	//Revome address
+	public void removeAddress(Address address) {
+		addressList.remove(address);
 	}
 	
-	//Adress list
-	public void AdressList() {
-		for (Adress adress : adressList) {
-			adress.toString();
+	//Address list
+	public void addressList() {
+		for (Address address : addressList) {
+			address.toString();
 		}
 	}
 	
-	//Set as principal adress
-	public boolean setPrincipalAdress(boolean principalAdress) {
-		for(Adress adress : adressList) {
-			if(adress.isPrincipalAdress() == true) {
-				adress.setPrincipalAdress(false);
+	//Set as principal address
+	public boolean setPrincipalAddress(boolean principalAdress) {
+		for(Address address : addressList) {
+			if(address.isPrincipalAddress() == true) {
+				address.setPrincipalAddress(false);
 			}
 		}
 		return principalAdress = true;
 	}
 	
+	@Override
 	public String toString() {
 		return  
 				"Name: "
 				+ name
 				+ "\nData: "
 				+ data
+				+ "\n"
+				+ "Address: \n"
+				+ addressList.toString()
 				+ "\n";
 	}
 	

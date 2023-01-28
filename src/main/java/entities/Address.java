@@ -1,17 +1,17 @@
 package entities;
 
-public class Adress {
+public class Address {
 
 	private String street;
 	private int postalCode;
 	private int number;
 	private String city;
-	private boolean principalAdress = true;
+	private boolean principalAddress = true;
 	
-	public Adress() {
+	public Address() {
 	}
 	
-	public Adress(String street, int postalCode, int number, String city) {
+	public Address(String street, int postalCode, int number, String city) {
 		this.street = street;
 		this.postalCode = postalCode;
 		this.number = number;
@@ -50,14 +50,15 @@ public class Adress {
 		this.city = city;
 	}
 
-	public void setPrincipalAdress(boolean principalAdress) {
-		this.principalAdress = false;
+	public void setPrincipalAddress(boolean principalAddress) {
+		this.principalAddress = false;
 	}
 	
-	public boolean isPrincipalAdress() {
-		return principalAdress;
+	public boolean isPrincipalAddress() {
+		return principalAddress;
 	}
 	
+	@Override
 	public String toString() {
 		return "Street: " 
 				+ street
@@ -67,7 +68,10 @@ public class Adress {
 				+ number
 				+ "\nCity: "
 				+ city
-				+ "\n\n";
+				+ "\nPrincipal Address: "
+				+ principalAddress
+				+ "\n";
+
 	}
 	
 }
