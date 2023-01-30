@@ -1,23 +1,52 @@
 package entities;
 
+import org.hibernate.annotations.Table;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+@Entity
+@Table(appliesTo = "tb_address")
 public class Address {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String street;
 	private int postalCode;
 	private int number;
 	private String city;
 	private boolean principalAddress = true;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "persona_id")
+	private Persona persona;
+	
 	public Address() {
 	}
 	
-	public Address(String street, int postalCode, int number, String city) {
+	public Address(int id, String street, int postalCode, int number, String city, boolean principalAddress) {
+		this.id = id;
 		this.street = street;
 		this.postalCode = postalCode;
 		this.number = number;
 		this.city = city;
+		this.principalAddress = principalAddress;
 	}
 
+	public int getPersonaId() {
+		return id;
+	}
+	
+	public void setPersonaId(int id) {
+		this.id = id;
+	}
+	
 	public String getStreet() {
 		return street;
 	}
@@ -49,15 +78,15 @@ public class Address {
 	public void setCity(String city) {
 		this.city = city;
 	}
-
-	public void setPrincipalAddress(boolean principalAddress) {
-		this.principalAddress = false;
-	}
 	
 	public boolean isPrincipalAddress() {
 		return principalAddress;
 	}
-	
+
+	public void setPrincipalAddress(boolean principalAddress) {
+		this.principalAddress = principalAddress;
+	}
+
 	@Override
 	public String toString() {
 		return "Street: " 
