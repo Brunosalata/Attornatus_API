@@ -46,6 +46,9 @@ public class PersonaService {
 	//Add an address to profile
 	public Persona addAddress(Address address) {
 		Persona newPersona = findById(address.getPersonaId());
+		if(address.getPrincipalAddress()==true) {
+			newPersona.isPrincipalAddress(address);
+		}
 		newPersona.addAddress(address);
 		return repository.save(newPersona);
 	}

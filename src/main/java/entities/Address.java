@@ -79,7 +79,7 @@ public class Address {
 		this.city = city;
 	}
 	
-	public boolean isPrincipalAddress() {
+	public boolean getPrincipalAddress() {
 		return principalAddress;
 	}
 
@@ -101,6 +101,11 @@ public class Address {
 				+ principalAddress
 				+ "\n";
 
+	}
+
+	public void setId(int personaId) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

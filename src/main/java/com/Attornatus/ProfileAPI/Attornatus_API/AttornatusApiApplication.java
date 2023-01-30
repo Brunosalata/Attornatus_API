@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import entities.Address;
 import entities.Persona;
+import repositories.AddressRepository;
 import repositories.PersonaRepository;
 
 @SpringBootApplication
@@ -15,8 +16,8 @@ public class AttornatusApiApplication implements CommandLineRunner{
 	@Autowired
 	private PersonaRepository personaRepository;
 	
-	//@Autowired
-	//private AddressRepository addressRepository;
+	@Autowired
+	private AddressRepository addressRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(AttornatusApiApplication.class, args);		
@@ -28,7 +29,7 @@ public class AttornatusApiApplication implements CommandLineRunner{
 		//Create a new person
 		Persona person = new Persona(1, "Bruno", "20/12/1988");
 		Address address = new Address(1, "Iwagiro Toyama", 13564380, 261, "Sao Carlos", true);
-		person.addAddress(address);
+		addressRepository.save(address);
 		///persons.add(person);
 		personaRepository.save(person);
 		

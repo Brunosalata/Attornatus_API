@@ -92,7 +92,7 @@ public class Persona implements Serializable{
 	//Set as principal address
 	public boolean setPrincipalAddress(boolean principalAdress) {
 		for(Address address : addressList) {
-			if(address.isPrincipalAddress() == true) {
+			if(address.getPrincipalAddress() == true) {
 				address.setPrincipalAddress(false);
 			}
 		}
